@@ -32,19 +32,34 @@
 
     &__padding {
         margin: 20px;
-        overflow: hidden;
-        border-radius: 5px;
-        -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
         @include breakpoint (desktop) {
-            margin: 50px;
+            margin: 96px;
             position: relative;
+        }
+    }
+
+    &__radius {
+        border-radius: 5px;
+        overflow: hidden;
+        -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+    }
+
+    &__heading {
+        font-size: 50px;
+        margin-top: 0;
+        margin-bottom: 48px;
+        display: none;
+        font-weight: 600;
+        @include breakpoint (desktop) {
+            display: block;
         }
     }
 
     &__wrapper {
         background: #fff;
         display: flex;
-        width: 400%;
+        width: 300%;
+        position: relative;
         transition: transform .6s ease-in-out;
 
         @include breakpoint (desktop) {
@@ -52,21 +67,14 @@
         }
 
         &--two {
-            transform: translateX(-25%);
+            transform: translateX(-33%);
             @include breakpoint (desktop) {
                 transform: translateX(0);
             }
         }
 
         &--three {
-            transform: translateX(-50%);
-            @include breakpoint (desktop) {
-                transform: translateX(0);
-            }
-        }
-
-        &--four {
-            transform: translateX(-75%);
+            transform: translateX(-66%);
             @include breakpoint (desktop) {
                 transform: translateX(0);
             }
@@ -95,7 +103,7 @@
             svg {
                 width: 15px;
                 height: auto;
-                margin-left: 12px;
+                //margin-left: 12px;
             }
             &:focus {
                 outline: none;
@@ -128,7 +136,7 @@
         overflow-y: scroll;
         overflow-x: hidden;
         @include breakpoint (desktop) {
-            width: calc(100% - 150px);
+            width: calc(100% - 100px);
             display: flex;
             height: 100%;
             overflow: hidden;
@@ -174,7 +182,6 @@
     &__section__content {
         width: 100%;
         @include breakpoint (desktop) {
-            margin: 30px;
             overflow: hidden;
         }
         p {
@@ -198,62 +205,36 @@
             }
         }
         &--portrait {
-            @include breakpoint (desktop) {
-                display: flex;
-                flex-wrap: wrap;
-            }
             .toggleSlider__section__content__image {
                 overflow: hidden;
                 position: relative;
-                @include breakpoint (desktop) {
-                    width: 60%;
-                }
                 img {
                     height: auto;
                     width: 100%;
                     display: block;
                     object-fit: cover;
                     backface-visibility: hidden;
-                    @include breakpoint (desktop) {
-                        display: block;
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        min-height: 100%;
-                        min-width: 100%;
-                        transform: translate(-50%, -50%);
-                    }
                 }
             }
             .toggleSlider__section__content__text {
-                padding: 30px 30px 90px 30px;
+                padding: 30px 30px 60px 30px;
                 display: flex;
                 flex-direction: column;
-                @include breakpoint (desktop) {
-                    width: 40%;
-                    padding: 30px 30px 0 30px;
-                }
                 h2 {
                     font-family: Maax-Regular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-                    font-size: 54px;
+                    font-size: 40px;
                     line-height: 90%;
-                    font-weight: 400;
-                    margin: 0;
+                    font-weight: 600;
+                    margin: 0 0 20px 0;
+                    display: flex;
                     &.secondWord {
                         margin-bottom: 20px;
                     }
-                    @include breakpoint (desktop) {
-                        font-size: 54px;
-                    }
                     @include breakpoint (large-desktop) {
-                        font-size: 72px;
+                        font-size: 40px;
                         &.secondWord {
                             margin-bottom: 50px;
                         }
-                    }
-                    div {
-                        width: 100%;
-                        display: flex;
                     }
                 }
             }
@@ -342,20 +323,6 @@
                         }
                     }
                 }
-                h2 {
-                    font-family: Maax-Regular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-                    font-size: 78px;
-                    font-weight: 400;
-                    line-height: 78%;
-                    margin: 0;
-                    display: flex;
-                    @include breakpoint (desktop) {
-                        font-size: 120px;
-                    }
-                }
-                .right {
-                    margin-left: auto;
-                }
             }
         }
     }
@@ -371,15 +338,23 @@
         text-transform: uppercase;
         background: $green-500;
         transition: background-color .1s ease-in;
+        position: relative;
         @include breakpoint (desktop) {
             padding: 16px;
-            width: 50px;
+            width: 51px;
             display: flex;
             justify-content: center;
             flex-direction: column;
             &:hover {
                 cursor: pointer;
                 background: darken($green-500, 5%);
+            }
+
+            span {
+                transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+                position: absolute;
+                left: 50%;
+                top: 50%;
             }
         }
         &--morning {
